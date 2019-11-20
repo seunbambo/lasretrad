@@ -178,7 +178,7 @@ class License extends Component {
                   </label>
                   <div className="input-group input-group-lg">
                     <input
-                      className="py-4 border-right-0 form-control text-muted"
+                      className="border-right-0 form-control text-muted"
                       type="file"
                       value=""
                       placeholder=""
@@ -224,7 +224,7 @@ class License extends Component {
                   </label>
                   <div className="input-group input-group-lg">
                     <input
-                      className="py-4 border-right-0 form-control text-muted"
+                      className="border-right-0 form-control text-muted"
                       type="file"
                       value=""
                       placeholder=""
@@ -246,7 +246,7 @@ class License extends Component {
                   </label>
                   <div className="input-group input-group-lg">
                     <input
-                      className="py-4 border-right-0 form-control text-muted"
+                      className="border-right-0 form-control text-muted"
                       type="file"
                       value=""
                       placeholder=""
