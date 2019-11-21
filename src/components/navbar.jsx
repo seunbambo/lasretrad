@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-inverse mb-5 primary-color">
+    <nav className="navbar navbar-expand-lg navbar-inverse mb-5">
       <div className="container">
         <Link className="navbar-brand text-light" to="/">
           <strong>NEWMAP</strong>
@@ -52,7 +52,7 @@ const NavBar = () => {
           <ul className="navbar-nav ml-auto text-center">
             <div className="btn-group">
               <img
-                src="images/user2.png"
+                src={require("../images/user2.png")}
                 alt="user"
                 className="profile-image my-auto"
                 data-toggle="dropdown"

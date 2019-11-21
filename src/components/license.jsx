@@ -1,10 +1,27 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 
 class License extends Component {
-  state = {};
+  firstname = React.createRef();
+
+  state = {
+    account: { firstname: "", password: "" }
+  };
+
+  handleChange = ({ currentTarget: input }) => {
+    const account = { ...this.state.account };
+    account[input.name] = input.value;
+    this.setState({ account });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+
+    const firstname = this.firstname.current.value;
+    console.log(firstname);
+  };
 
   render() {
+    const { account } = this.state;
     return (
       <div className="container">
         <section>
@@ -20,149 +37,142 @@ class License extends Component {
         </section>
 
         <section className="my-5 col-md-10 mx-auto">
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <div className="row">
               <div className="col-md-4 my-2">
                 <div className="form-group">
                   <label htmlFor="firstname">
                     First Name <sup className="text-danger">*</sup>
                   </label>
-                  <div id="firstname" className="input-group input-group-lg">
+                  <div className="input-group input-group-sm">
                     <input
-                      className="py-4 form-control text-muted"
+                      className="py-4 form-control"
+                      value={account.firstname}
+                      onChange={this.handleChange}
+                      id="firstname"
+                      name="firstname"
                       type="text"
-                      value=""
-                      placeholder=""
-                      autocomplete="off"
-                      required
+                      autoFocus
+                      autoComplete="off"
+                      //required
                     />
                   </div>
                 </div>
               </div>
               <div className="col-md-4 my-2">
                 <div className="form-group">
-                  <label>
+                  <label htmlFor="lastname">
                     Last Name <sup className="text-danger">*</sup>
                   </label>
-                  <div className="input-group input-group-lg">
+                  <div className="input-group input-group-sm">
                     <input
-                      className="py-4 form-control text-muted"
+                      className="py-4 form-control"
+                      id="lastname"
                       type="text"
-                      value=""
-                      placeholder=""
-                      autocomplete="off"
-                      required
+                      autoComplete="off"
+                      //required
                     />
                   </div>
                 </div>
               </div>
               <div className="col-md-4 my-2">
                 <div className="form-group">
-                  <label>
+                  <label htmlFor="gender">
                     Gender <sup className="text-danger">*</sup>
                   </label>
-                  <div className="input-group input-group-lg">
+                  <div className="input-group input-group-sm">
                     <input
-                      className="py-4 mx-1 form-control text-muted"
-                      type="text"
-                      value=""
-                      placeholder=""
-                      autocomplete="off"
-                      required
+                      className="py-4 mx-1 form-control"
+                      type="button"
+                      value="Male"
+                      autoComplete="off"
+                      //required
                     />
                     <input
-                      className="py-4 mx-1 form-control text-muted"
-                      type="text"
-                      value=""
-                      placeholder=""
-                      autocomplete="off"
-                      required
+                      className="py-4 mx-1 btn btn-disabled form-control"
+                      type="button"
+                      value="Female"
+                      autoComplete="off"
+                      //required
                     />
                   </div>
                 </div>
               </div>
               <div className="col-md-4 my-2">
-                <label>
+                <label htmlFor="email">
                   Email <sup className="text-danger">*</sup>
                 </label>
-                <div className="input-group input-group-lg">
+                <div className="input-group input-group-sm">
                   <input
-                    className="py-4 form-control text-muted"
-                    type="text"
-                    value=""
-                    placeholder=""
-                    autocomplete="off"
-                    required
+                    className="py-4 form-control"
+                    type="email"
+                    name="email"
+                    id="email"
+                    autoComplete="off"
+                    //required
                   />
                 </div>
               </div>
               <div className="col-md-4 my-2">
                 <div className="form-group">
-                  <label>
+                  <label htmlFor="mobile">
                     Mobile Number <sup className="text-danger">*</sup>
                   </label>
-                  <div className="input-group input-group-lg">
+                  <div className="input-group input-group-sm">
                     <input
-                      className="py-4 form-control text-muted"
+                      className="py-4 form-control"
                       type="text"
-                      value=""
-                      placeholder=""
-                      autocomplete="off"
-                      required
+                      id="mobile"
+                      autoComplete="off"
+                      //required
                     />
                   </div>
                 </div>
               </div>
               <div className="col-md-4 my-2">
                 <div className="form-group">
-                  <label>
+                  <label htmlFor="businessnumber">
                     Business Registration Number
-                    <sup className="text-danger">*</sup>
+                    <sup className="text-danger"> * </sup>
                     <i className="fa fa-info-circle text-success"></i>
                   </label>
-                  <div className="input-group input-group-lg">
+                  <div className="input-group input-group-sm">
                     <input
-                      className="py-4 mx-1 form-control text-muted input"
+                      className="py-4 form-control"
                       type="text"
-                      value=""
-                      placeholder=""
-                      autocomplete="off"
-                      required
+                      id="businessnumber"
+                      autoComplete="off"
+                      //required
                     />
                   </div>
                 </div>
               </div>
               <div className="col-md-4 my-2">
-                <div className="form-group">
-                  <label>
+                <div className="form-group form-group">
+                  <label htmlFor="business">
                     Business <sup className="text-danger">*</sup>
                   </label>
                   <div className="input-group input-group-lg">
-                    <select name="" id="" className="py-4 mx-1 form-control">
-                      <option value="Individual Business Name">
-                        Individual Business Name
-                      </option>
-                      <option value="Individual Business Name">
-                        Coporate Business Name
-                      </option>
+                    <select className="form-control">
+                      <option>Individual Business Name</option>
+                      <option>Corporate Business Name</option>
                     </select>
                   </div>
                 </div>
               </div>
               <div className="col-md-8 my-2">
                 <div className="form-group">
-                  <label>
-                    Business Registration Number
+                  <label htmlFor="companyaddress">
+                    Company Address
                     <sup className="text-danger">*</sup>
                   </label>
-                  <div className="input-group input-group-lg">
+                  <div className="input-group input-group-sm">
                     <input
-                      className="py-4 mx-1 form-control text-muted"
+                      className="py-4 form-control"
                       type="text"
-                      value=""
-                      placeholder=""
-                      autocomplete="off"
-                      required
+                      id="companyaddress"
+                      autoComplete="off"
+                      //required
                     />
                   </div>
                   <small className="text-muted mt-2">
@@ -172,17 +182,15 @@ class License extends Component {
               </div>
               <div className="col-md-4 my-2">
                 <div className="form-group">
-                  <label>
+                  <label htmlFor="cofinc">
                     Upload Certificate of Incorporation
                     <sup className="text-danger">*</sup>
                   </label>
                   <div className="input-group input-group-lg">
                     <input
-                      className="border-right-0 form-control text-muted"
+                      className="py-auto border-right-0 form-control form-control-sm"
                       type="file"
-                      value=""
-                      placeholder=""
-                      required
+                      //required
                     />
                     <span className="input-group-prepend">
                       <div className="input-group-text bg-muted border-left-0">
@@ -197,20 +205,17 @@ class License extends Component {
               </div>
               <div className="col-md-4 my-2">
                 <div className="form-group">
-                  <label>
+                  <label htmlFor="identification">
                     Mode of Identification
                     <sup className="text-danger">*</sup>
                   </label>
                   <div className="input-group input-group-lg">
-                    <select name="" id="" className="py-4 mx-1 form-control">
-                      <option value="Individual Business Name">
-                        National ID
-                      </option>
-                      <option value="Individual Business Name">
-                        Driver's License
-                      </option>
+                    <select className="form-control">
+                      <option value="National ID">National ID</option>
+                      <option value="Driver's License">Driver's License</option>
                     </select>
                   </div>
+
                   <small className="text-muted mt-2">
                     Valid proof of Identification
                   </small>
@@ -218,17 +223,16 @@ class License extends Component {
               </div>
               <div className="col-md-4 my-2">
                 <div className="form-group">
-                  <label>
+                  <label htmlFor="uploadidentification">
                     Upload Identification Document
                     <sup className="text-danger">*</sup>
                   </label>
                   <div className="input-group input-group-lg">
                     <input
-                      className="border-right-0 form-control text-muted"
+                      className="py-auto border-right-0 form-control text-muted"
                       type="file"
-                      value=""
-                      placeholder=""
-                      required
+                      id="uploadidentification"
+                      //required
                     />
                     <span className="input-group-prepend">
                       <div className="input-group-text bg-muted border-left-0">
@@ -246,11 +250,9 @@ class License extends Component {
                   </label>
                   <div className="input-group input-group-lg">
                     <input
-                      className="border-right-0 form-control text-muted"
+                      className="py-auto border-right-0 form-control text-muted"
                       type="file"
-                      value=""
-                      placeholder=""
-                      required
+                      //required
                     />
                     <span className="input-group-prepend">
                       <div className="input-group-text bg-muted border-left-0">
@@ -269,13 +271,14 @@ class License extends Component {
                   <label>
                     Password <sup className="text-danger">*</sup>
                   </label>
-                  <div className="input-group input-group-lg">
+                  <div className="input-group input-group-sm">
                     <input
-                      className="py-4 form-control text-muted"
+                      className="py-4 form-control"
                       type="password"
-                      value=""
-                      placeholder=""
-                      required
+                      value={account.password}
+                      onChange={this.handleChange}
+                      name="password"
+                      //required
                     />
                   </div>
                 </div>
@@ -285,21 +288,20 @@ class License extends Component {
                   <label>
                     Confirm Password <sup className="text-danger">*</sup>
                   </label>
-                  <div className="input-group input-group-lg">
+                  <div className="input-group input-group-sm">
                     <input
-                      className="py-4 form-control text-muted"
+                      className="py-4 form-control"
                       type="password"
-                      value=""
                       placeholder=""
-                      required
+                      //required
                     />
                   </div>
                 </div>
               </div>
               <input
-                type="button"
-                className="btn primary-color my-4 btn-lg btn-block"
+                className="btn btn-info my-4 btn-lg btn-block"
                 value="Register"
+                type="submit"
               />
             </div>
           </form>

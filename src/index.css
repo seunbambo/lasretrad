@@ -7,9 +7,13 @@
   /*font-family: "Montserrat", sans-serif;*/
 }
 
+nav {
+  background-color: rgba(7, 7, 58, 0.719);
+  color: #ffffff;
+}
+
 .primary-color {
   background-color: rgba(7, 7, 58, 0.719);
-
   color: #ffffff;
 }
 
