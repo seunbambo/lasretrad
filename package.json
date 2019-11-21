@@ -1,9 +1,10 @@
 {
-  "name": "router-app",
+  "name": "lasretrad",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "joi-browser": "^13.4.0",
     "query-string": "^6.1.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",

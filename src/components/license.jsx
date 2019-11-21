@@ -1,27 +1,80 @@
-import React, { Component } from "react";
+import React from "react";
+import Joi from "joi-browser";
+import Form from "./common/form";
 
-class License extends Component {
-  firstname = React.createRef();
-
+class License extends Form {
   state = {
-    account: { firstname: "", password: "" }
+    data: {
+      firstName: "",
+      lastName: "",
+      gender: "",
+      email: "",
+      mobile: "",
+      businessNumber: "",
+      business: "",
+      companyAddress: "",
+      certificateOfInc: "",
+      modeOfIdentification: "",
+      idDocument: "",
+      photo: "",
+      password: "",
+      confirm: ""
+    },
+    options: [],
+    errors: {}
   };
 
-  handleChange = ({ currentTarget: input }) => {
-    const account = { ...this.state.account };
-    account[input.name] = input.value;
-    this.setState({ account });
-  };
-
-  handleSubmit = e => {
-    e.preventDefault();
-
-    const firstname = this.firstname.current.value;
-    console.log(firstname);
+  schema = {
+    _id: Joi.string(),
+    firstName: Joi.string()
+      .required()
+      .label("First Name"),
+    lastName: Joi.string()
+      .required()
+      .label("Last Name"),
+    gender: Joi.string()
+      .required()
+      .label("Gender"),
+    email: Joi.string()
+      .required()
+      .email()
+      .label("Email"),
+    mobile: Joi.string()
+      .required()
+      .label("Mobile"),
+    businessNumber: Joi.string()
+      .required()
+      .label("Businness Number"),
+    business: Joi.string()
+      .required()
+      .label("Business Type"),
+    companyAddress: Joi.string()
+      .required()
+      .label("Address"),
+    certificateOfInc: Joi.string()
+      .required()
+      .label("Upload Certificate of Incorporation"),
+    modeOfIdentification: Joi.string()
+      .required()
+      .label("Mode of Identification"),
+    idDocument: Joi.string()
+      .required()
+      .label("Upload Identification Document"),
+    photo: Joi.string()
+      .required()
+      .label("Upload Photo of Yourself"),
+    password: Joi.string()
+      .required()
+      .min(6)
+      .label("Password"),
+    confirm: Joi.string()
+      .required()
+      .min(6)
+      .label("Confirm Password")
   };
 
   render() {
-    const { account } = this.state;
+    //const { data, errors } = this.state;
     return (
       <div className="container">
         <section>
@@ -40,112 +93,25 @@ class License extends Component {
           <form onSubmit={this.handleSubmit}>
             <div className="row">
               <div className="col-md-4 my-2">
-                <div className="form-group">
-                  <label htmlFor="firstname">
-                    First Name <sup className="text-danger">*</sup>
-                  </label>
-                  <div className="input-group input-group-sm">
-                    <input
-                      className="py-4 form-control"
-                      value={account.firstname}
-                      onChange={this.handleChange}
-                      id="firstname"
-                      name="firstname"
-                      type="text"
-                      autoFocus
-                      autoComplete="off"
-                      //required
-                    />
-                  </div>
-                </div>
+                {this.renderInput("firstName", "First Name")}
               </div>
               <div className="col-md-4 my-2">
-                <div className="form-group">
-                  <label htmlFor="lastname">
-                    Last Name <sup className="text-danger">*</sup>
-                  </label>
-                  <div className="input-group input-group-sm">
-                    <input
-                      className="py-4 form-control"
-                      id="lastname"
-                      type="text"
-                      autoComplete="off"
-                      //required
-                    />
-                  </div>
-                </div>
+                {this.renderInput("lastName", "Last Name")}
               </div>
               <div className="col-md-4 my-2">
-                <div className="form-group">
-                  <label htmlFor="gender">
-                    Gender <sup className="text-danger">*</sup>
-                  </label>
-                  <div className="input-group input-group-sm">
-                    <input
-                      className="py-4 mx-1 form-control"
-                      type="button"
-                      value="Male"
-                      autoComplete="off"
-                      //required
-                    />
-                    <input
-                      className="py-4 mx-1 btn btn-disabled form-control"
-                      type="button"
-                      value="Female"
-                      autoComplete="off"
-                      //required
-                    />
-                  </div>
-                </div>
+                {this.renderInput("gender", "Gender")}
               </div>
               <div className="col-md-4 my-2">
-                <label htmlFor="email">
-                  Email <sup className="text-danger">*</sup>
-                </label>
-                <div className="input-group input-group-sm">
-                  <input
-                    className="py-4 form-control"
-                    type="email"
-                    name="email"
-                    id="email"
-                    autoComplete="off"
-                    //required
-                  />
-                </div>
+                {this.renderInput("email", "Email")}
               </div>
               <div className="col-md-4 my-2">
-                <div className="form-group">
-                  <label htmlFor="mobile">
-                    Mobile Number <sup className="text-danger">*</sup>
-                  </label>
-                  <div className="input-group input-group-sm">
-                    <input
-                      className="py-4 form-control"
-                      type="text"
-                      id="mobile"
-                      autoComplete="off"
-                      //required
-                    />
-                  </div>
-                </div>
+                {this.renderInput("mobile", "Mobile")}
               </div>
               <div className="col-md-4 my-2">
-                <div className="form-group">
-                  <label htmlFor="businessnumber">
-                    Business Registration Number
-                    <sup className="text-danger"> * </sup>
-                    <i className="fa fa-info-circle text-success"></i>
-                  </label>
-                  <div className="input-group input-group-sm">
-                    <input
-                      className="py-4 form-control"
-                      type="text"
-                      id="businessnumber"
-                      autoComplete="off"
-                      //required
-                    />
-                  </div>
-                </div>
+                {this.renderInput(
+                  "businessNumber",
+                  "Business Registration Number"
+                )}
               </div>
               <div className="col-md-4 my-2">
                 <div className="form-group form-group">
@@ -154,31 +120,18 @@ class License extends Component {
                   </label>
                   <div className="input-group input-group-lg">
                     <select className="form-control">
-                      <option>Individual Business Name</option>
-                      <option>Corporate Business Name</option>
+                      <option className="form-control-sm">
+                        Individual Business Name
+                      </option>
+                      <option className="form-control-sm">
+                        Corporate Business Name
+                      </option>
                     </select>
                   </div>
                 </div>
               </div>
               <div className="col-md-8 my-2">
-                <div className="form-group">
-                  <label htmlFor="companyaddress">
-                    Company Address
-                    <sup className="text-danger">*</sup>
-                  </label>
-                  <div className="input-group input-group-sm">
-                    <input
-                      className="py-4 form-control"
-                      type="text"
-                      id="companyaddress"
-                      autoComplete="off"
-                      //required
-                    />
-                  </div>
-                  <small className="text-muted mt-2">
-                    Please ensure that the address entered is verifiable
-                  </small>
-                </div>
+                {this.renderInput("companyAddress", "Company Address")}
               </div>
               <div className="col-md-4 my-2">
                 <div className="form-group">
@@ -190,6 +143,7 @@ class License extends Component {
                     <input
                       className="py-auto border-right-0 form-control form-control-sm"
                       type="file"
+                      value=""
                       //required
                     />
                     <span className="input-group-prepend">
@@ -203,35 +157,32 @@ class License extends Component {
                   </small>
                 </div>
               </div>
+
               <div className="col-md-4 my-2">
-                <div className="form-group">
-                  <label htmlFor="identification">
-                    Mode of Identification
-                    <sup className="text-danger">*</sup>
+                <div className="form-group form-group">
+                  <label htmlFor="business">
+                    Mode of Identification <sup className="text-danger">*</sup>
                   </label>
                   <div className="input-group input-group-lg">
                     <select className="form-control">
-                      <option value="National ID">National ID</option>
-                      <option value="Driver's License">Driver's License</option>
+                      <option className="form-control-sm">
+                        Driver's License
+                      </option>
                     </select>
                   </div>
-
-                  <small className="text-muted mt-2">
-                    Valid proof of Identification
-                  </small>
                 </div>
               </div>
               <div className="col-md-4 my-2">
                 <div className="form-group">
-                  <label htmlFor="uploadidentification">
-                    Upload Identification Document
+                  <label htmlFor="cofinc">
+                    Upload Certificate of Incorporation
                     <sup className="text-danger">*</sup>
                   </label>
                   <div className="input-group input-group-lg">
                     <input
-                      className="py-auto border-right-0 form-control text-muted"
+                      className="py-auto border-right-0 form-control form-control-sm"
                       type="file"
-                      id="uploadidentification"
+                      value=""
                       //required
                     />
                     <span className="input-group-prepend">
@@ -240,6 +191,9 @@ class License extends Component {
                       </div>
                     </span>
                   </div>
+                  <small className="text-muted mt-2">
+                    Please ensure file is not more than 3mb
+                  </small>
                 </div>
               </div>
               <div className="col-md-4 my-2">
@@ -267,42 +221,13 @@ class License extends Component {
                 </div>
               </div>
               <div className="col-md-4 my-2">
-                <div className="form-group">
-                  <label>
-                    Password <sup className="text-danger">*</sup>
-                  </label>
-                  <div className="input-group input-group-sm">
-                    <input
-                      className="py-4 form-control"
-                      type="password"
-                      value={account.password}
-                      onChange={this.handleChange}
-                      name="password"
-                      //required
-                    />
-                  </div>
-                </div>
+                {this.renderInput("password", "Password", "password")}
               </div>
               <div className="col-md-4 my-2">
-                <div className="form-group">
-                  <label>
-                    Confirm Password <sup className="text-danger">*</sup>
-                  </label>
-                  <div className="input-group input-group-sm">
-                    <input
-                      className="py-4 form-control"
-                      type="password"
-                      placeholder=""
-                      //required
-                    />
-                  </div>
-                </div>
+                {this.renderInput("confirm", "Confirm Password", "password")}
               </div>
-              <input
-                className="btn btn-info my-4 btn-lg btn-block"
-                value="Register"
-                type="submit"
-              />
+
+              {this.renderButton("Register")}
             </div>
           </form>
         </section>

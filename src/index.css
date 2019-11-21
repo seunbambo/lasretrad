@@ -30,3 +30,7 @@ nav {
   font-size: 7em;
   color: #aaa;
 }
+
+.input {
+  height: 0px;
+}
