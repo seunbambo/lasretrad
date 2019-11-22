@@ -5,6 +5,9 @@
   "dependencies": {
     "bootstrap": "^4.3.1",
     "joi-browser": "^13.4.0",
+    "jquery": "^3.4.1",
+    "popper": "^1.0.1",
+    "popper.js": "^1.16.0",
     "query-string": "^6.1.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
@@ -16,5 +19,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "@types/bootstrap": "^4.3.1"
   }
 }

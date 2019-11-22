@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-inverse mb-5">
+    <nav className="navbar navbar-expand-lg navbar-dark mb-5">
       <div className="container">
         <Link className="navbar-brand text-light" to="/">
           <strong>NEWMAP</strong>

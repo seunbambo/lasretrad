@@ -6,6 +6,7 @@ import Dashboard from "./components/Dashboard";
 import NotFound from "./components/notFound";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.js";
 
 class App extends Component {
   render() {

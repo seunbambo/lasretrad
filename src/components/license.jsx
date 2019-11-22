@@ -99,7 +99,19 @@ class License extends Form {
                 {this.renderInput("lastName", "Last Name")}
               </div>
               <div className="col-md-4 my-2">
-                {this.renderInput("gender", "Gender")}
+                <label htmlFor="gender">
+                  Gender <sup className="text-danger">*</sup>
+                </label><br/>
+                
+                <div className="btn-group-sm btn-group-toggle" data-toggle="buttons">
+                  
+                    <label className="btn btn-light py-3">
+                      <input type="radio" className="form-control" name="options" id="option2" autocomplete="off" /> Male
+                      </label>
+                      <label className="btn btn-light py-3">
+                        <input type="radio" className="form-control" name="options" id="option3" autocomplete="off" /> Female
+                      </label>
+                </div>
               </div>
               <div className="col-md-4 my-2">
                 {this.renderInput("email", "Email")}
@@ -139,9 +151,9 @@ class License extends Form {
                     Upload Certificate of Incorporation
                     <sup className="text-danger">*</sup>
                   </label>
-                  <div className="input-group input-group-lg">
+                  <div className="input-group">
                     <input
-                      className="py-auto border-right-0 form-control form-control-sm"
+                      className="border-right-0 form-control form-control-sm py-4 my-auto"
                       type="file"
                       value=""
                       //required
@@ -159,12 +171,12 @@ class License extends Form {
               </div>
 
               <div className="col-md-4 my-2">
-                <div className="form-group form-group">
+                <div className="form-group">
                   <label htmlFor="business">
                     Mode of Identification <sup className="text-danger">*</sup>
                   </label>
                   <div className="input-group input-group-lg">
-                    <select className="form-control">
+                    <select className="form-control form-control-sm py-2 my-auto">
                       <option className="form-control-sm">
                         Driver's License
                       </option>
@@ -175,15 +187,15 @@ class License extends Form {
               <div className="col-md-4 my-2">
                 <div className="form-group">
                   <label htmlFor="cofinc">
-                    Upload Certificate of Incorporation
+                    Upload Identification Document
                     <sup className="text-danger">*</sup>
                   </label>
-                  <div className="input-group input-group-lg">
+                  <div className="input-group">
                     <input
-                      className="py-auto border-right-0 form-control form-control-sm"
+                      className="border-right-0 form-control form-control-sm py-4 my-auto"
                       type="file"
                       value=""
-                      //required
+                    //required
                     />
                     <span className="input-group-prepend">
                       <div className="input-group-text bg-muted border-left-0">
@@ -191,9 +203,7 @@ class License extends Form {
                       </div>
                     </span>
                   </div>
-                  <small className="text-muted mt-2">
-                    Please ensure file is not more than 3mb
-                  </small>
+                  
                 </div>
               </div>
               <div className="col-md-4 my-2">
@@ -202,9 +212,9 @@ class License extends Form {
                     Upload Photo of Yourself
                     <sup className="text-danger">*</sup>
                   </label>
-                  <div className="input-group input-group-lg">
+                  <div className="input-group">
                     <input
-                      className="py-auto border-right-0 form-control text-muted"
+                      className="border-right-0 form-control form-control-sm py-4 my-auto"
                       type="file"
                       //required
                     />
