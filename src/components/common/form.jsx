@@ -56,7 +56,7 @@ class Form extends Component {
   renderButton(label) {
     return (
       <button
-        className="btn btn-info my-4 btn-lg btn-block"
+        className="btn primary-color my-4 btn-lg btn-block"
         onClick={this.doSubmit}
       >
         {label}

@@ -4,9 +4,9 @@ import NavBar from "./components/navbar";
 import License from "./components/license";
 import Dashboard from "./components/Dashboard";
 import NotFound from "./components/notFound";
-import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
+import "./App.css";
 
 class App extends Component {
   render() {
