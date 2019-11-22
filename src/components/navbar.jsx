@@ -6,7 +6,7 @@ const NavBar = () => {
     <nav className="navbar navbar-expand-lg navbar-dark mb-5">
       <div className="container">
         <Link className="navbar-brand text-light" to="/">
-          <strong>NEWMAP</strong>
+          <strong>LASRETRAD</strong>
         </Link>
         <button
           className="navbar-toggler"
